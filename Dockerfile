@@ -1,0 +1,14 @@
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+COPY Backend/requirements.txt Backend/requirements.txt
+RUN pip install --no-cache-dir -r Backend/requirements.txt
+
+COPY . .
+
+WORKDIR /app/Backend
+
+CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:${PORT:-8000} app:app"]
