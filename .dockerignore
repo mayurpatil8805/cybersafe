@@ -1,0 +1,5 @@
+.git
+__pycache__
+*.pyc
+Backend/cybersafe_backup.db
+Backend/cybersafe_old.db
