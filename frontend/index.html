@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
+  <title>CyberSafe | Cyber Security Awareness</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
+
+  <!-- Application scripts -->
+  <script src="script.js" defer></script>
+  <script src="admin.js" defer></script>
+</head>
+
+<body>
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-icon">🛡️</div>
+      <div>
+        <strong>CyberSafe</strong>
+        <small>SECURITY AWARENESS</small>
+      </div>
+    </div>
+
+    <div class="nav-label">MAIN MENU</div>
+
+    <nav>
+      <button class="nav-link active" data-section="dashboard">▦ <span>Dashboard</span></button>
+      <button class="nav-link" data-section="learn">▤ <span>Learn Security</span></button>
+      <button class="nav-link" data-section="phishing">✉ <span>Phishing Lab</span></button>
+      <button class="nav-link" data-section="url">⌕ <span>URL Analyzer</span></button>
+      <button class="nav-link" data-section="qr">▦ <span>QR Security</span></button>
+      <button class="nav-link" data-section="password">🔑 <span>Password Lab</span></button>
+      <button class="nav-link" data-section="attack">⚡ <span>Attack Simulator</span></button>
+      <button class="nav-link" data-section="quiz">☑ <span>Cyber Quiz</span></button>
+      <button class="nav-link" data-section="progress">◴ <span>My Progress</span></button>
+      <button class="nav-link" data-section="certificate">🏆 <span>Certificate</span></button>
+      <button class="nav-link" data-section="report">🚨 <span>Report Cyber Crime</span></button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="safe-card">
+        <span>🛡️</span>
+        <strong>Stay Cyber Safe</strong>
+        <small>Think before you click.</small>
+      </div>
+      <button class="nav-link" id="themeBtn">☼ <span>Toggle Theme</span></button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+      <div class="breadcrumb">
+        CyberSafe <span>/</span> <b id="pageTitle">Dashboard</b>
+      </div>
+
+      <div class="top-actions">
+        <span id="authUser">Guest</span>
+        <button class="primary-btn" id="showLoginBtn">Login</button>
+        <button class="outline-btn" id="showRegisterBtn">Register</button>
+        <button class="outline-btn hidden" id="logoutBtn">Logout</button>
+        <div class="avatar" id="userAvatar">G</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- DASHBOARD -->
+      <section class="page active" id="dashboard">
+
+        <div class="welcome">
+          <div>
+            <span class="eyebrow">CYBER SECURITY AWARENESS PLATFORM</span>
+            <h1>Welcome to <span>CyberSafe.</span></h1>
+            <p>Learn, practice and protect yourself in the digital world.</p>
+            <button class="primary-btn" data-go="learn">Start Learning →</button>
+          </div>
+          <div class="hero-shield">🛡️</div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span>📚</span>
+            <small>Modules Completed</small>
+            <h2 id="statModules">0</h2>
+            <em>Learning progress</em>
+          </div>
+
+          <div class="stat-card">
+            <span>☑</span>
+            <small>Quiz Score</small>
+            <h2 id="statScore">0%</h2>
+            <em>Best performance</em>
+          </div>
+
+          <div class="stat-card">
+            <span>⚡</span>
+            <small>Points Earned</small>
+            <h2 id="statPoints">0</h2>
+            <em>Keep practicing</em>
+          </div>
+
+          <div class="stat-card">
+            <span>🏆</span>
+            <small>Achievements</small>
+            <h2 id="statBadges">0</h2>
+            <em>Unlocked badges</em>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">YOUR LEARNING</span>
+            <h2>Explore Security Labs</h2>
+          </div>
+        </div>
+
+        <div class="lab-grid">
+          <button class="lab-card" data-go="phishing">
+            <span>✉</span><h3>Phishing Lab</h3>
+            <p>Identify suspicious emails and messages.</p>
+            <b>Explore Lab →</b>
+          </button>
+
+          <button class="lab-card" data-go="url">
+            <span>⌕</span><h3>URL Analyzer</h3>
+            <p>Check URLs for suspicious indicators.</p>
+            <b>Explore Lab →</b>
+          </button>
+
+          <button class="lab-card" data-go="qr">
+            <span>▦</span><h3>QR Security</h3>
+            <p>Learn to identify risky QR links.</p>
+            <b>Explore Lab →</b>
+          </button>
+
+          <button class="lab-card" data-go="password">
+            <span>🔑</span><h3>Password Lab</h3>
+            <p>Understand password safety and MFA.</p>
+            <b>Explore Lab →</b>
+          </button>
+
+          <button class="lab-card" data-go="attack">
+            <span>⚡</span><h3>Attack Simulator</h3>
+            <p>Practice responding to cyber incidents.</p>
+            <b>Explore Lab →</b>
+          </button>
+
+          <button class="lab-card" data-go="quiz">
+            <span>☑</span><h3>Cyber Quiz</h3>
+            <p>Test your cyber security knowledge.</p>
+            <b>Explore Lab →</b>
+          </button>
+        </div>
+
+        <div class="notice">
+          <span>💡</span>
+          <div>
+            <strong>Cyber Safety Tip</strong>
+            <p>Never share your password, OTP or banking PIN with anyone.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEARNING -->
+      <section class="page" id="learn">
+        <div class="page-heading">
+          <span class="eyebrow">KNOWLEDGE CENTER</span>
+          <h1>Learn Cyber Security</h1>
+          <p>Build your knowledge through beginner-friendly lessons.</p>
+        </div>
+
+        <div class="lesson-grid">
+          <article class="lesson-card">
+            <span>🎣</span>
+            <h3>Phishing Attacks</h3>
+            <p>Learn how attackers use fake emails, messages and websites.</p>
+            <button class="outline-btn" data-lesson="phishing">Open Lesson →</button>
+          </article>
+
+          <article class="lesson-card">
+            <span>🔐</span>
+            <h3>Password Security</h3>
+            <p>Understand strong passwords, password managers and MFA.</p>
+            <button class="outline-btn" data-lesson="password">Open Lesson →</button>
+          </article>
+
+          <article class="lesson-card">
+            <span>🧠</span>
+            <h3>Social Engineering</h3>
+            <p>Learn how attackers manipulate people into sharing information.</p>
+            <button class="outline-btn" data-lesson="social">Open Lesson →</button>
+          </article>
+
+          <article class="lesson-card">
+            <span>🌐</span>
+            <h3>Safe Browsing</h3>
+            <p>Learn about HTTPS, suspicious links and website safety.</p>
+            <button class="outline-btn" data-lesson="browsing">Open Lesson →</button>
+          </article>
+
+          <article class="lesson-card">
+            <span>🦠</span>
+            <h3>Malware Awareness</h3>
+            <p>Understand viruses, ransomware, spyware and trojans.</p>
+            <button class="outline-btn" data-lesson="malware">Open Lesson →</button>
+          </article>
+
+          <article class="lesson-card">
+            <span>📶</span>
+            <h3>Wi-Fi &amp; Privacy</h3>
+            <p>Learn how to stay safe on public Wi-Fi networks.</p>
+            <button class="outline-btn" data-lesson="wifi">Open Lesson →</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- PHISHING -->
+      <section class="page" id="phishing">
+        <div class="page-heading">
+          <span class="eyebrow">INTERACTIVE TRAINING</span>
+          <h1>Phishing Awareness Lab</h1>
+          <p>Can you identify a phishing email?</p>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <span class="tag danger-tag">TRAINING EMAIL</span>
+              <h2>Sample Inbox</h2>
+            </div>
+            <span>✉ Email Simulation</span>
+          </div>
+
+          <div class="email-box">
+            <div class="email-row"><span>From</span><b>security@bank-alert.example</b></div>
+            <div class="email-row"><span>Subject</span><b>Urgent! Your account will be suspended</b></div>
+            <hr>
+            <p>Dear Customer,</p>
+            <p id="emailBody">Your bank account will be suspended today. Verify your account immediately to avoid interruption.</p>
+            <button class="fake-link" type="button" disabled>Verify Account (Training Link)</button>
+            <p class="muted">This is a fictional email for awareness training. Do not enter real credentials.</p>
+          </div>
+
+          <h3>What is your assessment?</h3>
+
+          <div class="choice-list" id="phishingChoices">
+            <button data-answer="safe">This email is safe</button>
+            <button data-answer="phishing">This email is phishing</button>
+            <button data-answer="unsure">I am not sure</button>
+          </div>
+
+          <div id="phishingResult" class="result-box hidden" aria-live="polite"></div>
+          <button class="primary-btn" id="nextPhishing">Try Another Email →</button>
+        </div>
+
+        <div class="notice">
+          <span>⚠️</span>
+          <div>
+            <strong>Remember</strong>
+            <p>Check the sender address, unexpected urgency, spelling and destination URL before trusting a message.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- URL ANALYZER -->
+      <section class="page" id="url">
+        <div class="page-heading">
+          <span class="eyebrow">LINK AWARENESS</span>
+          <h1>URL Threat Analyzer</h1>
+          <p>Check a URL for common suspicious indicators locally in your browser.</p>
+        </div>
+
+        <div class="panel">
+          <label for="urlInput">Enter a URL</label>
+          <div class="input-row">
+            <input id="urlInput" type="text" placeholder="https://example.com">
+            <button class="primary-btn" id="analyzeUrl">Analyze URL</button>
+          </div>
+          <p class="muted">Use example URLs only. The tool does not open or visit the submitted website.</p>
+          <div id="urlResult" class="result-box hidden" aria-live="polite"></div>
+        </div>
+
+        <div class="notice">
+          <span>ℹ️</span>
+          <div>
+            <strong>Important limitation</strong>
+            <p>This is a basic educational heuristic checker, not a malware scanner or reputation service. A low-risk result does not prove a URL is safe.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- QR SECURITY -->
+      <section class="page" id="qr">
+        <div class="page-heading">
+          <span class="eyebrow">QUISHING AWARENESS</span>
+          <h1>QR Code Security</h1>
+          <p>Decode a QR code and inspect its destination before opening it.</p>
+        </div>
+
+        <div class="panel">
+          <h3>Upload QR Code Image</h3>
+          <input type="file" id="qrFile" accept="image/*">
+          <div id="qr-reader" class="qr-reader"></div>
+          <div id="qrResult" class="result-box hidden" aria-live="polite"></div>
+          <p class="muted">The scanner only reads the QR content. It does not open the destination URL.</p>
+        </div>
+      </section>
+
+      <!-- PASSWORD -->
+      <section class="page" id="password">
+        <div class="page-heading">
+          <span class="eyebrow">PASSWORD AWARENESS</span>
+          <h1>Password Security Lab</h1>
+          <p>Understand what makes a password stronger.</p>
+        </div>
+
+        <div class="panel">
+          <label for="passwordInput">Enter a sample password</label>
+          <input type="password" id="passwordInput" placeholder="Enter a fictional password" autocomplete="off">
+          <p class="muted">Never enter a real password here. This check runs locally in your browser.</p>
+
+          <div class="strength-track"><div id="strengthBar"></div></div>
+          <h3 id="strengthText">Strength: Not checked</h3>
+
+          <ul class="check-list">
+            <li id="ruleLength">○ At least 12 characters</li>
+            <li id="ruleUpper">○ Uppercase and lowercase letters</li>
+            <li id="ruleNumber">○ At least one number</li>
+            <li id="ruleSymbol">○ At least one special character</li>
+            <li id="ruleCommon">○ Avoid common password patterns</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <h3>What is MFA?</h3>
+          <p>Multi-Factor Authentication adds another verification step, such as an authenticator app or security key, beyond a password.</p>
+          <div class="notice">
+            <span>🔐</span>
+            <div>
+              <strong>Enable MFA</strong>
+              <p>Use MFA on your email, banking and social media accounts wherever available.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ATTACK SIMULATOR -->
+      <section class="page" id="attack">
+        <div class="page-heading">
+          <span class="eyebrow">INCIDENT RESPONSE TRAINING</span>
+          <h1>Cyber Attack Simulator</h1>
+          <p>Choose the safest response to each fictional incident.</p>
+        </div>
+
+        <div class="panel">
+          <span class="tag warning-tag" id="scenarioCount">SCENARIO 1</span>
+          <h2 id="scenarioTitle">Suspicious UPI Request</h2>
+          <p id="scenarioText">Someone calls you and asks you to scan a QR code to receive a refund.</p>
+          <h3>What should you do?</h3>
+          <div class="choice-list" id="scenarioChoices"></div>
+          <div id="scenarioResult" class="result-box hidden" aria-live="polite"></div>
+          <button class="primary-btn" id="nextScenario">Next Scenario →</button>
+        </div>
+      </section>
+
+      <!-- QUIZ -->
+      <section class="page" id="quiz">
+        <div class="page-heading">
+          <span class="eyebrow">TEST YOUR KNOWLEDGE</span>
+          <h1>Cyber Security Quiz</h1>
+          <p>Answer questions and improve your awareness.</p>
+        </div>
+
+        <div class="panel quiz-panel">
+          <div class="quiz-top">
+            <span id="quizProgress">Question 1 of 10</span>
+            <span id="quizPoints">0 Points</span>
+          </div>
+
+          <div class="progress-track"><div id="quizProgressBar"></div></div>
+          <h2 id="quizQuestion"></h2>
+          <div class="choice-list" id="quizChoices"></div>
+          <div id="quizFeedback" class="result-box hidden" aria-live="polite"></div>
+          <button class="primary-btn" id="quizNext" disabled>Next Question →</button>
+        </div>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="page" id="progress">
+        <div class="page-heading">
+          <span class="eyebrow">YOUR PERFORMANCE</span>
+          <h1>My Learning Progress</h1>
+          <p>Track your awareness training journey.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><span>📚</span><small>Completed Modules</small><h2 id="progressModules">0</h2></div>
+          <div class="stat-card"><span>🎯</span><small>Best Quiz Score</small><h2 id="progressScore">0%</h2></div>
+          <div class="stat-card"><span>⭐</span><small>Total Points</small><h2 id="progressPoints">0</h2></div>
+        </div>
+
+        <div class="panel">
+          <h2>Module Completion</h2>
+          <div id="moduleProgressList"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Achievements</h2>
+          <div id="badgesList" class="badge-list"></div>
+        </div>
+
+        <button class="outline-btn" id="resetProgress">Reset Demo Progress</button>
+      </section>
+
+      <!-- CERTIFICATE -->
+      <section class="page" id="certificate">
+        <div class="page-heading">
+          <span class="eyebrow">YOUR ACHIEVEMENT</span>
+          <h1>Completion Certificate</h1>
+          <p>Generate a demo certificate after completing the quiz.</p>
+        </div>
+
+        <div class="panel">
+          <label for="certificateName">Your Name</label>
+          <input id="certificateName" maxlength="60" placeholder="Enter your name">
+
+          <p class="muted">Demo certificate only. This is not an accredited or official qualification.</p>
+
+          <div id="certificatePreview" class="certificate hidden">
+            <span>🛡️ CYBERSAFE</span>
+            <h2>Certificate of Completion</h2>
+            <p>This certificate is presented to</p>
+            <h1 id="certName"></h1>
+            <p>for completing the Cyber Security Awareness training quiz.</p>
+            <h3 id="certScore"></h3>
+            <small id="certDate"></small>
+          </div>
+
+          <button class="primary-btn" id="generateCertificate">Generate Certificate</button>
+          <button class="outline-btn" id="printCertificate">Download Certificate PDF</button>
+        </div>
+      </section>
+
+      <!-- REPORT CYBER CRIME -->
+      <section class="page" id="report">
+        <div class="page-heading">
+          <span class="eyebrow">INDIA CYBER SAFETY</span>
+          <h1>Report Cyber Crime</h1>
+          <p>Know what to do if you experience online fraud.</p>
+        </div>
+
+        <div class="report-grid">
+          <div class="report-card">
+            <span>📞</span>
+            <h2>1930</h2>
+            <p>National Cyber Crime Helpline for reporting financial cyber fraud.</p>
+            <a href="tel:1930">Call 1930</a>
+          </div>
+
+          <div class="report-card">
+            <span>🌐</span>
+            <h2>Cyber Crime Portal</h2>
+            <p>Use the official Government of India portal to report cybercrime.</p>
+            <a href="https://cybercrime.gov.in/" target="_blank" rel="noopener noreferrer">Visit Official Portal ↗</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>If you become a victim</h2>
+          <ol class="steps">
+            <li>Contact your bank or payment provider immediately if money is involved.</li>
+            <li>Call 1930 promptly for financial cyber fraud in India.</li>
+            <li>Report the incident on the official cybercrime portal.</li>
+            <li>Preserve transaction IDs, messages, screenshots and other evidence.</li>
+            <li>Change compromised passwords and enable MFA.</li>
+          </ol>
+        </div>
+
+        <div class="notice">
+          <span>⚠️</span>
+          <div>
+            <strong>Safety notice</strong>
+            <p>CyberSafe is an independent educational project, not a government website or reporting service.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> CyberSafe. Educational Cyber Security Awareness Project.
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<!-- LOGIN / REGISTER MODAL -->
+<div id="authModal" class="auth-modal hidden">
+  <div class="auth-box">
+    <button id="closeAuthBtn" class="close-auth" aria-label="Close">✕</button>
+
+    <h2 id="authTitle">Login to CyberSafe</h2>
+
+    <form id="registerForm" class="hidden">
+      <input id="registerName" type="text" placeholder="Full Name" required>
+      <input id="registerEmail" type="email" placeholder="Email" required>
+      <input id="registerPassword" type="password" placeholder="Password" minlength="10" required>
+      <button class="primary-btn" type="submit">Create Account</button>
+    </form>
+
+    <form id="loginForm">
+      <input id="loginEmail" type="email" placeholder="Email" required>
+      <input id="loginPassword" type="password" placeholder="Password" required>
+      <button class="primary-btn" type="submit">Login</button>
+    </form>
+
+    <p id="authMessage"></p>
+  </div>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
